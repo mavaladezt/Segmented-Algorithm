@@ -9,8 +9,12 @@ Depending on the application and its importance, sometimes 99% might not be enou
 When dealing with a new classification or regression problem, a comparison between the most common models is often performed. The top 2 or 3 models, with minimum hyperparameter tuning and best accuracy (less error) are the ones that are usually taken to the final rounds until one model is selected and then optimized to its full capacity by tuning.<p>
 What if the data scientist can use 2 or 3 different models to better predict one problem?<p>
 
-### Visual Examples
-[Example 1](../master/example1.pdf)
+### Examples
+[Example 1: Solve 2 different linear functions (r2 from 0.89 to 1.00:](../master/example1.pdf)
+[Example 2: Solve y = x**2 (r2 from 0.00 to 0.94:](../master/example2.pdf)
+[Example 3: Solve 2 different ln functions (r2 from 0.646 to 0.997:](../master/example3.pdf)
+[Example 4: Solve dataset with 200 observations and 3 features (r2 from 0.8972 to 0.973:](../master/example4.pdf)
+[Example 5: Solve (with recursion) a cubic function y = -x**3 +5x (r2 from 0.079 to 0.984:](../master/example5.pdf)
 
 ### The need: Why Segmented Machine Learning Algorithm<p>
 Image we are trying to solve a regression, classification or deep learning problem and one of all the features we have is a dummy variable such as yes/no (or male/female, etc.). Maybe some of the features are more important than others if this dummy variable is yes or no. Here is when SML algorithm can help the data scientist better predict an outcome.<p>
