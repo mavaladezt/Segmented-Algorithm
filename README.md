@@ -1,7 +1,7 @@
 # Segmented-Algorithm
 Segmented Machine Learning Algorithm<p>
 
-What is better than one machine learning algorithm? Two or more machine learning algorithms!<p>
+__What is better than one machine learning algorithm? Two or more machine learning algorithms!__<p>
 
 ### Summary<p>
 Machine learning, more than learning through experience, is basically an optimization problem. In machine learning the objective is to minimize the error of different functions and algorithms.<p>
