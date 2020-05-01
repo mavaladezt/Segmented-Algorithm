@@ -10,7 +10,7 @@ When dealing with a new classification or regression problem, a comparison betwe
 What if the data scientist can use 2 or 3 different models to better predict one problem?<p>
 
 ### Visual Examples
-[Example 1](../blob/master/Advertising.csv)
+[Example 1](../master/Advertising.csv)
 
 ### The need: Why Segmented Machine Learning Algorithm<p>
 Image we are trying to solve a regression, classification or deep learning problem and one of all the features we have is a dummy variable such as yes/no (or male/female, etc.). Maybe some of the features are more important than others if this dummy variable is yes or no. Here is when SML algorithm can help the data scientist better predict an outcome.<p>
