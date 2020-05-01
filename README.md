@@ -1,5 +1,4 @@
-# Segmented-Algorithm
-Segmented Machine Learning Algorithm<p>
+# Segmented Machine Learning Algorithm<p>
 
 __What is better than one machine learning algorithm? Two or more machine learning algorithms!__<p>
 
