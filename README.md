@@ -1,20 +1,20 @@
 # Segmented-Algorithm
 Segmented Machine Learning Algorithm<p>
-<p>
+
 What is better than one machine learning algorithm? Two or more machine learning algorithms!<p>
-<p>
+
 ### Summary<p>
 Machine learning, more than learning through experience, is basically an optimization problem. In machine learning the objective is to minimize the error of different functions and algorithms.<p>
 Data scientists look for ways to ‘generalize’ the best solution so that it can be applied to real life (test) data.
 Depending on the application and its importance, sometimes 99% might not be enough (health applications, computer vision) and in some other cases 70% might be good enough (house price prediction).<p>
 When dealing with a new classification or regression problem, a comparison between the most common models is often performed. The top 2 or 3 models, with minimum hyperparameter tuning and best accuracy (less error) are the ones that are usually taken to the final rounds until one model is selected and then optimized to its full capacity by tuning.<p>
 What if the data scientist can use 2 or 3 different models to better predict one problem?<p>
-<p>
+
 ### The need: Why Segmented Machine Learning Algorithm<p>
 Image we are trying to solve a regression, classification or deep learning problem and one of all the features we have is a dummy variable such as yes/no (or male/female, etc.). Maybe some of the features are more important than others if this dummy variable is yes or no. Here is when SML algorithm can help the data scientist better predict an outcome.<p>
 Continuing with this example, what if the data scientist can use a linear regression when the dummy variable is yes and use a lasso or ridge regression on the data when the value is no?<p>
 Or if it is a classification problem, what if we can use Naïve Bayes for some data and Logistic Regression on the rest of the data?<p>
-<p>
+
 ### How the Segmented Machine Learning Algorithm works<p>
 The SML algorithm works relatively easy.<p>
 1.	For each feature (columns in X), the algorithm orders the data in ascending order. It starts working with first feature X[:,0] going item by item before moving to the second feature X[:,1], etc.<p>
@@ -25,7 +25,7 @@ b.	Same example as above, but the first feature is dummy and has only value of 0
 4.	Left values are ‘fit’ in the first machine learning object and the right values are ‘fit’ in the second object. The sum of both errors, in this case MSE, are added and compared in each iteration.<p>
 5.	The algorithm keeps iterating until all values of X are analyzed and the information of the best value is stored in a dictionary (which is the output).<p>
 6.	The algorithm can then be run recursively several times if needed.<p>
-<p>
+
 ### Capabilities of the Algorithm<p>
 SML algorithm works with regression and classification objects, technically it can work with deep learning objects but it might not be feasible to run it without modifications to improve speed.<p>
 The algorithm works relatively fast if X doesn’t have a lot of different values (Ex. If it has some dummy features) and if the left and right machine learning objects are fast to execute.<p>
@@ -37,26 +37,26 @@ The algorithm should work with all types of machine learning objects, the only r
 •	left side LogisticRegression and the right side KNeighborsClassifier<p>
 •	left side SVR and the right side SVR.<p>
 •	left side SVM and the right side LogisticRegression.<p>
-<p>
+
 ### Recursion<p>
 Technically the model can be used recursively (it can be used to find the best split and then called again to find the best splits on each side and select the best one). This approach can be used to fit n-amount of different machine learning algorithms, for example use 4 linear regressions to solve a cubic function.<p>
-<p>
+
 ### Limitations of the Algorithm<p>
 The algorithm is not suited for slow machine learning objects that take long time to converge.<p>
 In order to use it for classification problems, the only thing that would have to be changed is the ‘error’ function that better minimizes the error. Current algorithm evaluates MSE.<p>
-<p>
+
 ### Future Work<p>
 Things to be improved is speed for machine learning objects that might take long time to converge.<p>
 For now, to use it in deep learning would be feasible only if the models are pre-trained.<p>
 Error function. For now, the algorithms uses sklearn’s mse (from sklearn.metrics import mean_squared_error) but it can be easily adapted for other errors like for example mean absolute error, etc.<p>
-<p>
+
 ### Prediction<p>
 For the prediction, the best solution of the algorithm is required. The best solution is a dictionary with relevant information about the trained machine learning algorithms of the left and the right, also the value of X and its location (column).<p>
 The prediction algorithm uses the fitted model of the left when values are less than or equal to the best value of X in the column with best split. For the other values, it predicts using the right fitted object.<p>
-<p>
+
 ### Hyperparameter Tuning<p>
 For each function on the left and on the side, there can be hyperparameter tuning. Although it is recommended to do it after running the SML algorithm.<p>
-<p>
+
 ### Python Inputs and Outputs:<p>
 INPUTS: <p>
 	X: np.array with observations with shape (rows, columns). Can’t have NULLS or NAN values. Can’t be sparse.<p>
