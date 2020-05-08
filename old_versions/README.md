@@ -10,7 +10,7 @@ When dealing with a new classification or regression problem, a comparison betwe
 What if the data scientist can use 2 or 3 different models to better predict one problem?<p>
 
 ### Examples
-[Example 1: Solve 2 different linear functions (r2 from 0.89 to 1.00:](../master/old_versions/example1.pdf)<p>
+[Example 1: Solve 2 different linear functions (r2 from 0.89 to 1.00:](../old_versions/example1.pdf)<p>
 [Example 2: Solve y = x**2 (r2 from 0.00 to 0.94:](../master/old_versions/example2.pdf)<p>
 [Example 3: Solve 2 different ln functions (r2 from 0.646 to 0.997:](../master/old_versions/example3.pdf)<p>
 [Example 4: Solve dataset with 200 observations and 3 features (r2 from 0.8972 to 0.973:](../master/old_versions/example4.pdf)<p>
