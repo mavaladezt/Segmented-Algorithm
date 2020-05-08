@@ -7,6 +7,7 @@ Machine learning is an optimization problem, the objective is to minimize the er
 Data scientists look for ways to ‘generalize’ the best solution so that it can be applied to real life (test) data.<p>
 Depending on the application and its importance, sometimes 99% might not be enough (health applications, computer vision) and in some other cases 70% might be good enough (house price prediction).
 
+![Image description](../blob/master/image02.jpg)
 
 ### The need: Why Segmented Machine Learning Algorithm<p>
 Some regression problems can be solved with more precision if more than one model is implemented. In these cases, SML works perfectly dividing the data in ‘sets’ and apply different models to predict the target variable.
