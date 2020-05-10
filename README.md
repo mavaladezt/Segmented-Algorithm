@@ -31,8 +31,8 @@ Error Function: The current algorithm evaluates MSE, but different error functio
 SML is not piecewise. Instead of defining a function as multiple sub-functions like piecewise, SML finds regression (of selected model) approximations to functions for different ranges and dimensions of x.
 
 ### How to Run the Algorithm with Different Parameters and Models (algorithm only implemented in python)
-Function:
-sml(X_train,y_train, model, max_levels=np.inf, max_iterations_per_col=100, count=0)
+__Function:
+sml(X_train,y_train, model, max_levels=np.inf, max_iterations_per_col=100, count=0)__
 
 Run SML with Linear Regression, 3 levels of recursion and default iterations per column = 100:
 sml(X_train,y_train,LinearRegression(),3,100)
