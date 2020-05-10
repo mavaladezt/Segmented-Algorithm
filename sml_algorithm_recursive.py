@@ -185,25 +185,23 @@ x, y = load_boston(return_X_y=True)
 #y = y+(x[:,0]>=0)*5
 
 #=====DATA12===========================================
-from sklearn.datasets import make_circles
-x, y = make_circles(1000)
-x = x[y==1]
-y = y[y==1]
-y = deepcopy(x[:,1])
-x[:,1]=y>=0
+# from sklearn.datasets import make_circles
+# x, y = make_circles(1000)
+# x = x[y==1]
+# y = y[y==1]
+# y = deepcopy(x[:,1])
+# x[:,1]=y>=0
 
 
-# lr = LinearRegression(n_jobs=-1).fit(x,y)
-fig = plt.figure('Plot',figsize=(12, 9), dpi=80, facecolor='w', edgecolor='k')
-ax1 = fig.add_subplot(111)
-ax1.scatter(x[:,0], y, c='b', s=3, label='data')
-#ax1.scatter(x,lr.predict(x), c='g', s=3, label='linear r.')
-#ax1.scatter(x, pred_total, c='r', s=3, label='sml')
-ax1.set_xlabel('x')
-ax1.set_ylabel('y')
-ax1.set_title('')
-ax1.legend(loc=2)
-plt.show()
+
+# fig = plt.figure('Plot',figsize=(12, 9), dpi=80, facecolor='w', edgecolor='k')
+# ax1 = fig.add_subplot(111)
+# ax1.scatter(x[:,0], y, c='b', s=3, label='data')
+# ax1.set_xlabel('x')
+# ax1.set_ylabel('y')
+# ax1.set_title('')
+# ax1.legend(loc=2)
+# plt.show()
 
 
 
@@ -245,7 +243,7 @@ print('\t\tMSE: ',mean_squared_error(y_test,lr.predict(X_test)),'\n')
 
 print('SML (LinearRegression)')
 start_time = time.time()
-parent = sml(X_train,y_train,LinearRegression(n_jobs=-1),np.inf,100)
+parent = sml(X_train,y_train,LinearRegression(n_jobs=-1),2,100)
 print("--- %s seconds ---" % round((time.time() - start_time),4))
 pred_train = predictions(parent,X_train)
 pred_test = predictions(parent,X_test)
@@ -258,19 +256,18 @@ print('\t\tr2: ',r2_score(y_test,pred_test))
 print('\t\tMSE: ',mean_squared_error(y_test,pred_test))
 
 
-lr = LinearRegression(n_jobs=-1).fit(x,y)
-fig = plt.figure('Plot',figsize=(12, 9), dpi=80, facecolor='w', edgecolor='k')
-ax1 = fig.add_subplot(111)
-ax1.scatter(x[:,0][x[:,1]==1], y[x[:,1]==1], c='b', s=3, label='data')
-ax1.scatter(x[:,0][x[:,1]==0], y[x[:,1]==0], c='b', s=3, label='data')
-#ax1.scatter(x, y, c='b', s=3, label='data')
-ax1.scatter(x[:,0],lr.predict(x), c='g', s=3, label='linear r.')
-ax1.scatter(x[:,0], pred_total, c='r', s=3, label='sml')
-ax1.set_xlabel('x')
-ax1.set_ylabel('y')
-ax1.set_title('')
-ax1.legend(loc=2)
-plt.show()
+# lr = LinearRegression(n_jobs=-1).fit(x,y)
+# fig = plt.figure('Plot',figsize=(12, 9), dpi=80, facecolor='w', edgecolor='k')
+# ax1 = fig.add_subplot(111)
+# ax1.scatter(x[:,0][x[:,1]==1], y[x[:,1]==1], c='b', s=3, label='data')
+# ax1.scatter(x[:,0][x[:,1]==0], y[x[:,1]==0], c='b', s=3, label='data')
+# ax1.scatter(x[:,0],lr.predict(x), c='g', s=3, label='linear r.')
+# ax1.scatter(x[:,0], pred_total, c='r', s=3, label='sml')
+# ax1.set_xlabel('x')
+# ax1.set_ylabel('y')
+# ax1.set_title('')
+# ax1.legend(loc=2)
+# plt.show()
 
 
 
@@ -350,3 +347,29 @@ plt.show()
 # ax1.set_title('')
 # ax1.legend(loc=0,fontsize=12,markerscale=5)
 # plt.show()
+
+from sklearn.svm import SVR
+start_time = time.time()
+sv = SVR()
+sv.fit(X_train, y_train)
+print("--- %s seconds ---" % round((time.time() - start_time),4))
+print('\tTrain:')
+print('\t\tr2: ',r2_score(y_train,sv.predict(X_train)))
+print('\t\tMSE: ',mean_squared_error(y_train,sv.predict(X_train)))
+print('\tTest:')
+print('\t\tr2: ',r2_score(y_test,sv.predict(X_test)))
+print('\t\tMSE: ',mean_squared_error(y_test,sv.predict(X_test)),'\n')
+
+print('SML (SVR)')
+start_time = time.time()
+parent = sml(X_train,y_train,SVR(),8,100)
+print("--- %s seconds ---" % round((time.time() - start_time),4))
+pred_train = predictions(parent,X_train)
+pred_test = predictions(parent,X_test)
+pred_total=predictions(parent,x)
+print('\tTrain:')
+print('\t\tr2: ',r2_score(y_train,pred_train))
+print('\t\tMSE: ',mean_squared_error(y_train,pred_train))
+print('\tTest:')
+print('\t\tr2: ',r2_score(y_test,pred_test))
+print('\t\tMSE: ',mean_squared_error(y_test,pred_test))
